@@ -1,0 +1,27 @@
+# Версия
+kubectl version --output=json
+
+# Создать под
+kubectl run app-kuber-1 --image=gepox/fastapi-simple:0.1.0 --port=8000
+
+# Получить список подов
+kubectl get pods
+kubectl get po
+
+
+# Получить описание пода
+kubectl describe pod app-kuber-1
+
+# Зайти в контейнер пода
+kubectl exec -it app-kuber-1 -- /bin/bash
+kubectl exec -it app-kuber-1 --container app-kuber-1 -- /bin/bash
+
+# Посмотреть определение yml для пода
+kubectl get pod app-kuber-2 -o yaml
+
+# Проброс порта в под для отладки
+kubectl port-forward app-kuber-1 11111:8000
+
+# Просмотр логов пода
+kubectl logs app-kuber-2
+kubectl logs app-kuber-2 --container <name>
