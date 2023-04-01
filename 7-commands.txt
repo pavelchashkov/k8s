@@ -1,0 +1,34 @@
+# Список подов с labels
+kubectl get po --show-labels
+
+# Список подов с определенными labels по колонкам
+kubectl get po -L app,environment,run
+
+# Добавить метку к поду
+kubectl label po app-kuber-1 environment=dev
+
+# Поиск подов по labels
+kubectl get po -l app=http-server
+kubectl get po -l app!=http-server
+
+# Поиск подов по labels на основе селекторов и наборов
+kubectl get po -l app                           # поды у которых существует метка app
+kubectl get po -l '!app'                        # поды у которых нет метки app
+kubectl get po -l 'environment in (dev)'        # поды у которых метка environment равна dev
+kubectl get po -l 'environment notin (dev)'     # поды у которых метка environment не dev
+kubectl get pos -l app,environment=dev          # поды у которых есть метка app и environment равно dev
+
+# Добавить метку к узлу
+kubectl label node docker-desktop test=true
+
+# Описание узла
+kubectl describe node docker-desktop
+
+# Удаление объектов по yml файлу
+kubectl delete -f <yml>
+
+# Удаление подов по меткам
+# kubectl po delete -l app=http-server
+
+# Удаление namespace
+kubectl delete ns dev
