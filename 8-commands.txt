@@ -1,0 +1,8 @@
+# Получить список ReplicationControllers
+kubectl get rc
+
+# Удалить RC
+kubectl delete rc <name>
+
+# Получить список ReplicaSet
+kubectl get rs
