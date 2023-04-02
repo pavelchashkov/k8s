@@ -1,0 +1,27 @@
+# Создание объекта deployment
+kubectl create deployment kuber-ctl-app --image=gepox/fastapi-simple:0.1.0 --port=8000 --replicas=3
+
+# Получить информацию о deployment в yaml
+kubectl get deployment kuber-ctl-app -o yaml
+
+# Изменить образ в контейнерах deployment
+kubectl set image deployment/kuber-ctl-app fastapi-simple=gepox/fastapi-simple:latest --record
+kubectl set image deployment/kuber kuber-app=gepox/fastapi-simple:0.1.0 --record
+
+# Добавить аннотацию
+kubectl annotate deployment kuber-ctl-app fastapi-simple/change-cause="version change to 0.2.0 (latest)" --overwrite=true
+
+# Удалить deployment в default namespace
+kubectl -n default delete deployment kuber-ctl-app
+
+# Посмотреть статус обновления
+kubectl rollout status deployment kuber
+
+# Посмотреть историю deployment
+kubectl rollout history deployment kuber
+
+# Отмена последнего развертывания
+kubectl rollout undo deployment kuber
+
+# Откат deployment к конкретной ревизии (по истории обновления)
+kubectl rollout undo deployment kuber --to-revision=1
