@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: endpoints-service
+spec:
+  ports:
+    - port: 80
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: endpoints-service
+subsets:
+  - addresses:
+      - ip: 10.1.0.100 # IP подов с разной версией приложения
+      - ip: 10.1.0.104 # IP подов с разной версией приложения
+    ports:
+      - port: 8000

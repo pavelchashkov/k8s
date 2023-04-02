@@ -1,0 +1,8 @@
+# Получить информацию о сервисах
+kubectl get svc
+
+# Цикл из curl запросов
+while true; do curl http://localhost:32365; sleep 2; echo; done
+
+# Получить конечные точки для сервисов
+kubectl get endpoints
