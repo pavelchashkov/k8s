@@ -1,0 +1,11 @@
+# Просмотр подов во всех нэймспэйсах с наблюдением
+kubectl get pods --all-namespaces --watch
+
+# Список модулей minikube
+minikube addons list
+
+# Добавления модуля ingress в minikube
+minikube addons enable ingress
+
+# Просмотреть список ingress
+kubectl get ing --all-namespaces --watch
