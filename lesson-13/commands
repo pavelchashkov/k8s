@@ -1,0 +1,7 @@
+# 3 типа liveness probes
+1. HTTP GET
+2. TCP
+3. EXEC
+
+# Получить список событий
+kubectl get events --watch
