@@ -1,0 +1,9 @@
+[flake8]
+ignore = E203,E226,E302,W503, A003
+max-line-length = 100
+exclude = tests/*,venv,env
+max-complexity = 10
+inline-quotes = "
+multiline-quotes = "
+docstring-quotes = """
+avoid-escape = False

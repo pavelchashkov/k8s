@@ -1,0 +1,8 @@
+# Переопределение параметров CMD docker (folder docker)
+
+ENTRYPOINT ["python3","-u", "server.py"]
+CMD ["1","5","text"]
+
+docker run -d -p 8000:8000 kuber:args
+docker run -d -p 8000:8000 kuber:args 2 3 gpu
+
