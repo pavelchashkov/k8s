@@ -1,0 +1,4 @@
+Jobs
+
+# Посмотреть список джобов
+kubectl get jobs
